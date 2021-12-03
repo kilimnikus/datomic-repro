@@ -5,24 +5,24 @@
    [datomic.client.api :as d]
    [com.climate.claypoole :as cp]))
 
-(def NUMBER-OF-TESTS 5000)
+(def NUMBER-OF-TESTS 300)
 
-(def CONCURRENCY 50)
+(def CONCURRENCY 10)
 
 (def db-options
   {:server-type :ion
    :region      "us-east-1"
-   :system      "datomic-videra-dev"
+   :system      "datomic-videra-app"
    :topology    :production
-   :endpoint    "http://entry.datomic-videra-dev.us-east-1.datomic.net:8182/"
+   :endpoint    "http://entry.datomic-videra-app.us-east-1.datomic.net:8182/"
    :proxy-port  8182})
 
 (def sample-tx
   [{:db/id "new-rating"
-    :rating/answer 637716745493701
-    :rating/evaluator 10150691347780673
-    :rating/scale 598134326722178
-    :rating/session 637716745492608
+    :rating/answer 44710540831883828 ;;app ;; 167125767541565 ;;stg ;; 637716745493701 ;;dev
+    :rating/evaluator 68666700177867153 ;;app ;; 668503069688185 ;;stg ;; 10150691347780673 ;;dev
+    :rating/scale 6412351813190134 ;;app ;; 171523814051978 ;;stg ;; 598134326722178 ;;dev
+    :rating/session 34300364740101337 ;;app ;; 167125767541565 ;;stg ;; 637716745492608 ;;dev
     :rating/rating "3"}])
 
 (defn exec-test [conn]
